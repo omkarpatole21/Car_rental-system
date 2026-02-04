@@ -1,0 +1,28 @@
+{% extends 'rental/base.html' %}
+
+{% block content %}
+<h2 class="mt-4 mb-4"><i class="fas fa-undo me-2"></i>Active Rentals</h2>
+<div class="row">
+    {% for customer in customers %}
+        {% for car in customer.rented_cars %}
+        <div class="col-md-6 mb-3">
+            <div class="glass-card p-3 d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="mb-1 text-info">{{ customer.name }}</h5>
+                    <p class="mb-0 text-light">{{ car.brand }} {{ car.model }} ({{ car.year }})</p>
+                </div>
+                <a href="{% url 'process_return' customer.name car.car_id %}" class="btn btn-danger btn-sm rounded-pill px-3">
+                    <i class="fas fa-undo me-1"></i> Return
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    {% empty %}
+    <div class="col-12">
+        <div class="glass-card text-center">
+            <p class="lead">There are currently no active rentals in the system.</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

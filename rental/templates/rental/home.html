@@ -1,0 +1,38 @@
+{% extends 'rental/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 text-center glass-card">
+        <h1 class="display-4 fw-bold mb-4">Drive Your Dream Today</h1>
+        <p class="lead mb-5">Experience luxury and performance with our premium cars. Simple rentals, exceptional service.</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="{% url 'available_cars' %}" class="btn btn-custom btn-lg">View Cars</a>
+            <a href="{% url 'add_customer' %}" class="btn btn-outline-light btn-lg rounded-pill px-4">Get Started</a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="glass-card text-center p-4">
+            <i class="fas fa-shield-alt fa-3x mb-3 text-info"></i>
+            <h3>Fully Insured</h3>
+            <p>Travel with peace of mind knowing all our vehicles are covered.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="glass-card text-center p-4">
+            <i class="fas fa-clock fa-3x mb-3 text-info"></i>
+            <h3>Quick Process</h3>
+            <p>Rent a car in less than 2 minutes with our Car system.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="glass-card text-center p-4">
+            <i class="fas fa-tags fa-3x mb-3 text-info"></i>
+            <h3>Best Prices</h3>
+            <p>Competitive rates on luxury, sports, and economy vehicles.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

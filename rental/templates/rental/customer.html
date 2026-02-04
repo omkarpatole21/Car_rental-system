@@ -1,0 +1,33 @@
+{% extends 'rental/base.html' %}
+
+{% block content %}
+<h2 class="mt-4 mb-4"><i class="fas fa-users me-2"></i>Registered Customers</h2>
+<div class="row">
+    {% for customer in customers %}
+    <div class="col-md-4 mb-4">
+        <div class="glass-card text-center">
+            <i class="fas fa-user-circle fa-4x mb-3 text-info"></i>
+            <h4>{{ customer.name }}</h4>
+            <hr class="border-light opacity-25">
+            <p class="mb-2"><strong>Rented Cars:</strong></p>
+            {% if customer.rented_cars %}
+                <ul class="list-unstyled">
+                {% for car in customer.rented_cars %}
+                    <li class="badge bg-info text-dark mb-1 d-block">{{ car.brand }} {{ car.model }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <span class="badge bg-secondary">No Active Rentals</span>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="glass-card text-center">
+            <p class="lead">No customers registered yet.</p>
+            <a href="{% url 'add_customer' %}" class="btn btn-custom">Add Customer</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
